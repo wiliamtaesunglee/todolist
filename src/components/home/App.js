@@ -12,6 +12,10 @@ const App = () => (
       <li>Item 5</li>
     </ul>
 
+    <div>
+      <h3>Mostart</h3>
+      <a href="">Todos</a> | <a href="">Finalizados</a> | <a href="">A fazer</a>
+    </div>
   </div>
 )
 
