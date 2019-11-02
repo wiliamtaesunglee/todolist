@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.module.css";
+import { createStore } from 'redux'
 
 const App = () => (
   <div>
