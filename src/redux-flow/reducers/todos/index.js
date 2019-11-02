@@ -1,6 +1,7 @@
 'use strict'
 import { ADD_TODO, TOGGLE_TODO } from './actions.js'
-const initialValue = []
+
+export const initialValue = []
 
 const todos = (state = initialValue, action) => {
  switch (action.type) {

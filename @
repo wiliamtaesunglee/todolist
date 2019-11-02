@@ -1,6 +1,6 @@
 'use strict'
 
-import todos, { initialValue } from './index'
+import todos from './index'
 import deepFreeze from 'deep-freeze'
 import { expect } from 'chai'
 import { ADD_TODO, TOGGLE_TODO } from './actions.js'
@@ -101,6 +101,5 @@ it('should return the initial state if the action is unknown', () => {
 it('should return the initial state if the before is undefined', () => {
   const before = undefined
   const action = deepFreeze([])
-  const after = initialValue
-  expect(todos(before, action)).to.be.deep.equal(after)
+  const after = initialState
 })
