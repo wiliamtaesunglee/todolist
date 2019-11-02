@@ -23,6 +23,8 @@ const todos = (state = initialValue, action) => {
       })
   }
 
+  return state
+
 }
 
 export default todos

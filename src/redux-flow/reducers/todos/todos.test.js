@@ -61,3 +61,39 @@ it('should toggle the first todo', () => {
 
   expect(todos(before, action)).to.be.deep.equal(after)
 })
+
+it('should toggle the second todo', () => {
+  const before = deepFreeze([
+    {id: 0, text: 'hey', completed: false},
+    {id: 1, text: 'ho', completed: false}
+  ])
+
+  const action = deepFreeze({
+    type: TOGGLE_TODO,
+    payload: {id: 1}
+  })
+
+  const after = ([
+    {id: 0, text: 'hey', completed: false},
+    {id: 1, text: 'ho', completed: true}
+  ])
+
+  expect(todos(before, action)).to.deep.equal(after)
+})
+
+it('should return the initial state if the action is unknown', () => {
+  const before = deepFreeze([
+    {id: 0, text: 'hey', completed: false}
+  ])
+
+  const action = deepFreeze({
+    type: 'UNKKOWN',
+    payload: {id: 0}
+  })
+
+  const after = ([
+    {id: 0, text: 'hey', completed: false}
+  ])
+
+  expect(todos(before, action)).to.deep.equal(after)
+})
