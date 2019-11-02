@@ -53,4 +53,11 @@ it('should toggle the first todo', () => {
     type: TOGGLE_TODO,
     payload: {id: 0}
   })
+
+  const after = [
+    {id: 0, text: 'hey', completed: true},
+    {id: 1, text: 'ho', completed: false}
+  ]
+
+  expect(todos(before, action)).to.be.deep.equal(after)
 })
