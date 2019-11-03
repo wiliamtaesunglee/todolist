@@ -3,7 +3,7 @@
 import React from "react";
 import css from "./App.module.css";
 import { connect } from 'react-redux';
-import { addTodo } from '../../redux-flow/reducers/todos/action-creators'
+import { addTodo, toggleTodo } from '../../redux-flow/reducers/todos/action-creators'
 
 const App = ({todos, handleAddTodo, handleToggleTodo}) => (
   <div>
@@ -18,7 +18,7 @@ const App = ({todos, handleAddTodo, handleToggleTodo}) => (
       {todos.map(todo => (
         <li key={todo.id}
           className={todo.completed ? css.completed : css.notCompleted}
-          onClick={handleToggleTodo}>
+          onClick={handleToggleTodo(todo.id)}>
           {todo.text}
           {console.log(todo.text, todo.id)}
         </li>
@@ -42,8 +42,9 @@ const mapDispatchProps = (dispatch) => ({
     dispatch(addTodo(e.target.todo.value))
     e.target.todo.value = ''
   },
-  handleToggleTodo: (e) => {
-   console.log('toggle todo')
+  handleToggleTodo: (id)=> (e) => {
+   console.log(id)
+   dispatch(toggleTodo(id))
   }
 })
 
