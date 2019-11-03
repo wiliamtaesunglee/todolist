@@ -12,15 +12,12 @@ const App = ({todos, handleAddTodo, handleToggleTodo}) => (
       <button type='submit'>Adicionar</button>
     </form>
 
-    {console.log(todos)}
-
     <ul>
       {todos.map(todo => (
         <li key={todo.id}
           className={todo.completed ? css.completed : css.notCompleted}
           onClick={handleToggleTodo(todo.id)}>
           {todo.text}
-          {console.log(todo.text, todo.id)}
         </li>
     ))}
     </ul>
@@ -43,7 +40,6 @@ const mapDispatchProps = (dispatch) => ({
     e.target.todo.value = ''
   },
   handleToggleTodo: (id)=> (e) => {
-   console.log(id)
    dispatch(toggleTodo(id))
   }
 })
