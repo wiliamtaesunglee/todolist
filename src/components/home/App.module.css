@@ -1,3 +1,7 @@
-html {
-  font-size: 20px;
+.completed {
+  text-decoration: line-through;
+}
+
+.notCompleted {
+  color: blue;
 }
