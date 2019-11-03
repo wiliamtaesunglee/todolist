@@ -1,3 +1,5 @@
+'use strict'
+
 import React from "react";
 import css from "./App.module.css";
 import { connect } from 'react-redux';
@@ -13,12 +15,13 @@ const App = ({todos, handleAddTodo}) => (
     {console.log(todos)}
 
     <ul>
-      {todos.map((todo) => {
+      {todos.map(todo => (
         <li key={todo.id} className={todo.completed ? css.completed : css.notCompleted}>
           {todo.text}
+          {console.log(todo.text, todo.id)}
         </li>
-      })}
-    </ul>.
+    ))}
+    </ul>
 
     <div>
       <h3>Mostart</h3>
@@ -34,7 +37,6 @@ const mapStateProps = (state) => ({
 const mapDispatchProps = (dispatch) => ({
   handleAddTodo: (e) => {
     e.preventDefault()
-    console.log(e.target.todo.value)
     dispatch(addTodo(e.target.todo.value))
   }
 })
