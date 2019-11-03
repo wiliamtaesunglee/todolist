@@ -24,7 +24,7 @@ const App = ({todos, handleAddTodo}) => (
     </ul>
 
     <div>
-      <h3>Mostart</h3>
+      <h3>Mostrar</h3>
       <a href="">Todos</a> | <a href="">Finalizados</a> | <a href="">A fazer</a>
     </div>
   </div>
@@ -38,6 +38,7 @@ const mapDispatchProps = (dispatch) => ({
   handleAddTodo: (e) => {
     e.preventDefault()
     dispatch(addTodo(e.target.todo.value))
+    e.target.todo.value = ''
   }
 })
 
