@@ -1,6 +1,6 @@
 'use strict'
 
-import visibilityFilter from './index.js'
+import visibilityFilter, { initialState } from './index.js'
 import { expect } from 'chai'
 import deepFreeze from 'deep-freeze'
 
@@ -35,5 +35,22 @@ it('should show just active todos', () => {
     payload: {filter: 'SHOW_ACTIVE'}
   })
   const after = 'SHOW_ACTIVE'
+  expect(visibilityFilter(before, action)).to.be.equal(after)
+})
+
+it('should return the lest state when the the action is uknown', () => {
+  const before = 'SHOW_COMPLETED'
+  const action = deepFreeze({
+    type: 'UNKNOWN',
+    payload: {filter: 'SHOW_ACTIVE' }
+  })
+  const after = 'SHOW_COMPLETED'
+  expect(visibilityFilter(before, action)).to.be.equal(after)
+})
+
+it('should return intial state when before is undefined', () => {
+  const before = undefined
+  const action = deepFreeze({})
+  const after = initialState
   expect(visibilityFilter(before, action)).to.be.equal(after)
 })
