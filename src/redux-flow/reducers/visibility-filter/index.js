@@ -1,8 +1,8 @@
 'use strict'
 
-export const initalState = 'SHOW_ALL'
+export const initialState = 'SHOW_ALL'
 
-const visibilityFilter = (state = initalState, action) => {
+const visibilityFilter = (state = initialState, action) => {
   switch(action.type) {
   case 'SET_VISIBILITY_FILTER':
     return action.payload.filter
