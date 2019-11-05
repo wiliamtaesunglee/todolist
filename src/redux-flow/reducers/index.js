@@ -1,11 +1,11 @@
-import reducerTodo from "./redux-flow/reducers/todos";
-import reducerVisibilityFilter from './redux-flow/reducers/visibility-filter';
+import reducerTodo from "./todos";
+import reducerVisibilityFilter from './visibility-filter';
 
-const reducer = (state = {}, action) => {
+const rootReducer = (state = {}, action) => {
   return {
     todos: reducerTodo(state.todos, action),
     visibilityFilter: reducerVisibilityFilter(state.visibilityFilter, action)
   }
 }
 
-export default reducer
+export default rootReducer
