@@ -1,8 +1,8 @@
 'use strict'
 
 import { combineReducers } from 'redux'
-import reducerTodo from "./todos";
-import reducerVisibilityFilter from './visibility-filter';
+import todos from "./todos";
+import visibilityFilter from './visibility-filter';
 
 //const rootReducer = (state = {}, action) => {
 //  return {
@@ -12,6 +12,6 @@ import reducerVisibilityFilter from './visibility-filter';
 //}
 
 export default combineReducers({
-  todos: reducerTodo,
-  visibilityFilter: reducerVisibilityFilter
+  todos,
+  visibilityFilter
 })
