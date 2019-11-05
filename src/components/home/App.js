@@ -30,7 +30,7 @@ const App = ({todos, handleAddTodo, handleToggleTodo}) => (
 )
 
 const mapStateProps = (state) => ({
-  todos: state
+  todos: state.todos
 })
 
 const mapDispatchProps = (dispatch) => ({
