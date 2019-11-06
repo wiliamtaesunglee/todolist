@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from '../../redux-flow/reducers/todos/action-creators'
 import Form from '../form/index'
 
-const App = ({todos, handleAddTodo, handleToggleTodo}) => (
+const App = ({todos, handleToggleTodo}) => (
   <div>
 
-    <Form handleAddTodo={handleAddTodo}/>
+    <Form/>
 
     <ul>
       {todos.map(todo => (
