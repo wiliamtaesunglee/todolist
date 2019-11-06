@@ -4,7 +4,7 @@ import { addTodo } from '../../redux-flow/reducers/todos/action-creators'
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Form = ({handleAddTodo}) => (
+export const Form = ({handleAddTodo}) => (
   <form onSubmit={handleAddTodo}>
     <input type='text' name='todo'/>
     <button type='submit'>Adicionar</button>
