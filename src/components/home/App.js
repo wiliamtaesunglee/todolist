@@ -4,13 +4,12 @@ import React from "react";
 import css from "./App.module.css";
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from '../../redux-flow/reducers/todos/action-creators'
+import Form from '../form/index'
 
 const App = ({todos, handleAddTodo, handleToggleTodo}) => (
   <div>
-    <form onSubmit={handleAddTodo}>
-      <input type='text' name='todo'/>
-      <button type='submit'>Adicionar</button>
-    </form>
+
+    <Form handleAddTodo={handleAddTodo}/>
 
     <ul>
       {todos.map(todo => (
