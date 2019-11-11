@@ -1,12 +1,22 @@
 'use strict'
 
 import React from 'react'
+import { connect } from 'react-redux'
 
 const Filter = () => (
   <div>
     <h3>Mostrar</h3>
-    <a href=''>Todos</a> | <a href=''>Finalizados</a> | <a href=''>A fazer</a>
+    {filterItems.map(items => {
+      return <a href='' key={items}>{items}</a>
+    })}
+    <span href=''>Todos</span> | <a href=''>Finalizados</a> | <a href=''>A fazer</a>
   </div>
 )
 
-export default Filter
+const filterItems = ['Todos', 'Finalizados', 'A fazer']
+
+const mapStateToProps = (state) => ({
+  activeFilter: state.visibilityFilter
+})
+
+export default connect(mapStateToProps)(Filter)
