@@ -4,18 +4,20 @@ import React from 'react'
 import style from './Filter.module.css'
 
 const FilterLink = ({action, activeFilter, children, onClick}) => {
+  const span = { tag: 'span' }
+  const a = { tag: 'a', href: '#', onClick }
 
+  const Component  = action === activeFilter ? span : a
 
-    if (action === activeFilter) return <span className={style.filterText}>{children}</span>
       return (
-      <a
-        href=''
-        className={style.filterText}
-        onClick={onClick}
-      >
+        <Component.tag
+         href={Component.href}
+         className={style.filterText}
+         onClick={Component.onClick}
+         >
           {children}
-        </a>
-        )
+        </Component.tag>
+     )
 
 }
 
