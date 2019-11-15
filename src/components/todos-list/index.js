@@ -19,14 +19,12 @@ import * as filterActions from '../../redux-flow/reducers/visibility-filter/acti
  )
 
 const getVisibleTodos = (todos, activeFilter) => {
-  switch(activeFilter) {
-    case filterActions.SHOW_ALL:
-      return todos
-    case filterActions.SHOW_COMPLETED:
-      return todos.filter(todo => todo.completed)
-    case filterActions.SHOW_ACTIVE:
-      return todos.filter(todo => !todo.completed)
+  const filterItems = {
+    [filterActions.SHOW_ALL] : todos,
+    [filterActions.SHOW_COMPLETED]: todos.filter(todo => todo.completed),
+    [filterActions.SHOW_ACTIVE]: todos.filter(todo => !todos.completed)
   }
+  return filterItems[activeFilter]
 }
 
 const mapStateProps = (state) => ({
