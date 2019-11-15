@@ -5,14 +5,22 @@ import { connect } from 'react-redux'
 import style from './Filter.module.css'
 import * as actions from '../../redux-flow/reducers/visibility-filter/actions'
 
-const Filter = ({activeFilter}) => (
+const Filter = ({activeFilter, handleFilter}) => (
   <div>
     <h3>Mostrar</h3>
     {filterItems.map(items => {
 
     if (items.action === activeFilter) return <span key={items.action} className={style.filterText}>{items.label}</span>
-
-      return <a href='' key={items.action} className={style.filterText}>{items.label}</a>
+      return (
+      <a
+        href=''
+        key={items.action}
+        className={style.filterText}
+        onClick={handleFilter(items.action)}
+      >
+          {items.label}
+        </a>
+        )
     })}
   </div>
 )
@@ -27,4 +35,11 @@ const mapStateToProps = (state) => ({
   activeFilter: state.visibilityFilter
 })
 
-export default connect(mapStateToProps)(Filter)
+const mapDispatchProps = (dispatch) => ({
+  handleFilter: (filter) => (e) => {
+    e.preventDefault()
+    console.log(e.target, filter)
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchProps)(Filter)
