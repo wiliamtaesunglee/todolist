@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import style from './Filter.module.css'
 import * as actions from '../../redux-flow/reducers/visibility-filter/actions'
-
+import { setVisibilityFilter } from '../../redux-flow/reducers/visibility-filter/action-creator'
 const Filter = ({activeFilter, handleFilter}) => (
   <div>
     <h3>Mostrar</h3>
@@ -38,6 +38,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchProps = (dispatch) => ({
   handleFilter: (filter) => (e) => {
     e.preventDefault()
+    dispatch(setVisibilityFilter(filter))
     console.log(e.target, filter)
   }
 })
