@@ -3,32 +3,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import style from './Filter.module.css'
-import * as actions from '../../redux-flow/reducers/visibility-filter/actions'
+import * as action from '../../redux-flow/reducers/visibility-filter/actions'
 import { setVisibilityFilter } from '../../redux-flow/reducers/visibility-filter/action-creator'
-const Filter = ({activeFilter, handleFilter}) => (
-  <div>
-    <h3>Mostrar</h3>
-    {filterItems.map(items => {
+import FilterLink from './filter-link'
 
-    if (items.action === activeFilter) return <span key={items.action} className={style.filterText}>{items.label}</span>
-      return (
-      <a
-        href=''
+const Filter = ({activeFilter, handleFilter}) => (
+   <div>
+   <h3>Mostrar</h3>
+     {filterItems.map(items => (
+      <FilterLink
         key={items.action}
-        className={style.filterText}
+        action={items.action}
+        activeFilter={items.activeFilter}
         onClick={handleFilter(items.action)}
       >
-          {items.label}
-        </a>
-        )
-    })}
-  </div>
+      {items.label}
+    </FilterLink>
+     ))}
+   </div>
 )
 
 const filterItems = [
-  { label: 'Todos', action: actions.SHOW_ALL },
-  { label: 'Finalizados', action: actions.SHOW_COMPLETED },
-  { label: 'A fazer', action: actions.SHOW_ACTIVE }
+  { label: 'Todos', action: action.SHOW_ALL },
+  { label: 'Finalizados', action: action.SHOW_COMPLETED },
+  { label: 'A fazer', action: action.SHOW_ACTIVE }
 ]
 
 const mapStateToProps = (state) => ({

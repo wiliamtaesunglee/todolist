@@ -1,0 +1,23 @@
+'use strict'
+
+import React from 'react'
+import style from './Filter.module.css'
+
+const FilterLink = ({action, activeFilter, label}) => {
+
+<div>
+    if (action === activeFilter) return <span className={style.filterText}>{label}</span>
+      return (
+      <a
+        href=''
+        className={style.filterText}
+        onClick={handleFilter(action)}
+      >
+          {items.label}
+        </a>
+        )
+  </div>
+
+}
+
+export default FilterLink
