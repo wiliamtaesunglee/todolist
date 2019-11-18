@@ -1,7 +1,14 @@
 'use strict'
+
 import { ADD_TODO, TOGGLE_TODO } from './actions.js'
 
 export const initialValue = []
+
+const createReducer = (initialValue, handleActions) => {
+  return (state = initialValue, action) => {
+    console.log(handleActions.hasOwnProperty(action))
+  }
+ }
 
 const todos = createReducer(initialValue, {
   [ADD_TODO]: (state, action) => state.concat({
