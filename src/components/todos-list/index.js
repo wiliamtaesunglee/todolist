@@ -22,7 +22,7 @@ const getVisibleTodos = (todos, activeFilter) => {
   const filterItems = {
     [filterActions.SHOW_ALL] : todos,
     [filterActions.SHOW_COMPLETED]: todos.filter(todo => todo.completed),
-    [filterActions.SHOW_ACTIVE]: todos.filter(todo => !todos.completed)
+    [filterActions.SHOW_ACTIVE]: todos.filter(todo => !todo.completed)
   }
   return filterItems[activeFilter]
 }
@@ -33,7 +33,7 @@ const mapStateProps = (state) => ({
 })
 
 const mapDispatchProps = (dispatch) => ({
-  handleToggleTodo: (id) => (e) => {
+  handleToggleTodo: (id) => () => {
     dispatch(toggleTodo(id))
   }
 })
