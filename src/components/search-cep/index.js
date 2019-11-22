@@ -1,16 +1,17 @@
 'use strict'
 
 import React from 'react'
+import style from './SearchCep.module.css'
 
 const SearchCep = () => (
-  <div>
-    <form>
+  <div className={style.div}>
+    <form className={style.form}>
       <input type='text' name='cep' />
       <button type='submit'>Buscar endereço</button>
     </form>
 
-    <table>
-      <thead>
+    <table className={style.table}>
+      <thead className={style.thead}>
         <tr>
           <td>CEP</td>
           <td>Endereço</td>
