@@ -25,7 +25,7 @@ const SearchCep = () => (
         <td>05433020</td>
         <td>Rua</td>
         <td>Bairro</td>
-        <td>Cidade</td>i
+        <td>Cidade</td>
         <td>Estado</td>
       </tbody>
     </table>

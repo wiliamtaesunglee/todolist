@@ -5,3 +5,12 @@
 .notCompleted {
   color: blue;
 }
+
+.div {
+
+  padding:30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
