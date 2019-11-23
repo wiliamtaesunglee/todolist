@@ -5,7 +5,7 @@ import css from "./App.module.css"
 import Form from '../form/index'
 import TodosList from '../todos-list'
 import Filter from '../filter/index'
-import SearchCep from '../search-cep'
+import SearchCepContainer from '../search-cep'
 import style from './App.module.css'
 
 const App = ({todos, handleToggleTodo}) => (
@@ -16,7 +16,7 @@ const App = ({todos, handleToggleTodo}) => (
       <Filter/>
     </div>
     <div>
-      <SearchCep/>
+      <SearchCepContainer/>
     </div>
   </div>
 )

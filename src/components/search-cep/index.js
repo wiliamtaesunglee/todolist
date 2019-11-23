@@ -1,35 +1,29 @@
 'use strict'
 
-import React from 'react'
-import style from './SearchCep.module.css'
+import React, { PureComponent } from 'react'
+import SearchCep from './search-cep'
 
-const SearchCep = () => (
-  <div className={style.div}>
-    <form className={style.form}>
-      <input type='text' name='cep' />
-      <button type='submit'>Buscar endereço</button>
-    </form>
+class SearchCepContainer extends PureComponent {
+  //constructor() {
+    //super()
+      //this.state = {
+      //}
+  //}
 
-    <table className={style.table}>
-      <thead className={style.thead}>
-        <tr>
-          <td>CEP</td>
-          <td>Endereço</td>
-          <td>Bairro</td>
-          <td>Cidade</td>
-          <td>Estado</td>
-        </tr>
-      </thead>
+  componentDidMount() {
+    const response = fetch('http://apps.widenet.com.br/busca-cep/api/cep.json?code=05433020')
+    .then(res =>res.json())
+      .then(data => {
+        return console.log(data)
+      })
+    //console.log(response)
+  }
 
-      <tbody>
-        <td>05433020</td>
-        <td>Rua</td>
-        <td>Bairro</td>
-        <td>Cidade</td>
-        <td>Estado</td>
-      </tbody>
-    </table>
-  </div>
-)
+  render () {
+    return (
+      <SearchCep />
+    )
+  }
+}
 
-export default SearchCep
+export default SearchCepContainer
